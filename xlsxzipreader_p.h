@@ -40,10 +40,15 @@
 #include "xlsxglobal.h"
 #include <QScopedPointer>
 #include <QStringList>
+#include <qtzipReader.h>
+
 #if QT_VERSION >= 0x050600
 #include <QVector>
 #endif
-class QZipReader;
+
+
+
+//class QtZ::QtZipReader;
 class QIODevice;
 
 QT_BEGIN_NAMESPACE_XLSX
@@ -61,7 +66,7 @@ public:
 private:
     Q_DISABLE_COPY(ZipReader)
     void init();
-    QScopedPointer<QZipReader> m_reader;
+    QScopedPointer<QtZ::QtZipReader> m_reader;
     QStringList m_filePaths;
 };
 

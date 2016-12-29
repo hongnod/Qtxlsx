@@ -10,9 +10,10 @@ TARGET = qtxlsx
 }
 
 TEMPLATE = lib
-QT += core gui gui-private
+QT += core gui
 
-DEFINES += QTXLSX_LIBRARY
+DEFINES += QTXLSX_LIBRARY QT_DEPRECATED_WARNINGS QTZIP_LIBRARY
+
 
 
 SOURCES += \
@@ -47,7 +48,8 @@ SOURCES += \
     xlsxworksheet.cpp \
     xlsxzipreader.cpp \
     xlsxzipwriter.cpp \
-    xlsxmarker.cpp
+    xlsxmarker.cpp \
+    qtzip/qtzip.cpp
 
 HEADERS +=\
     xlsxabstractooxmlfile.h \
@@ -96,7 +98,12 @@ HEADERS +=\
     xlsxzipreader_p.h \
     xlsxzipwriter_p.h \
     xlsxmarker.h \
-    xlsxmarker_p.h
+    xlsxmarker_p.h \
+    qtzip/miniz.h \
+    qtzip/qtzipglobal.h \
+    qtzip/qtzipreader.h \
+    qtzip/qtzipwriter.h
+INCLUDEPATH +=  $$PWD/qtzip
 
 unix {
     target.path = /usr/lib
