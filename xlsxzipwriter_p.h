@@ -37,8 +37,11 @@
 //
 #include "xlsxglobal.h"
 #include <QString>
+
+#include <qtzipWriter.h>
+
 class QIODevice;
-class QZipWriter;
+//class QtZ::QtZipWriter;
 
 QT_BEGIN_NAMESPACE_XLSX
 
@@ -55,7 +58,7 @@ public:
     void close();
 
 private:
-    QZipWriter *m_writer;
+    QtZ::QtZipWriter *m_writer;
 };
 
 QT_END_NAMESPACE_XLSX // namespace QXlsx
