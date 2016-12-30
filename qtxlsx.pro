@@ -49,7 +49,11 @@ SOURCES += \
     xlsxzipreader.cpp \
     xlsxzipwriter.cpp \
     xlsxmarker.cpp \
-    qtzip/qtzip.cpp
+    qtzip/qtzip.cpp \
+    qtzip/miniz.c \
+    qtzip/miniz_tdef.c \
+    qtzip/miniz_tinfl.c \
+    qtzip/miniz_zip.c
 
 HEADERS +=\
     xlsxabstractooxmlfile.h \
@@ -99,10 +103,14 @@ HEADERS +=\
     xlsxzipwriter_p.h \
     xlsxmarker.h \
     xlsxmarker_p.h \
-    qtzip/miniz.h \
     qtzip/qtzipglobal.h \
     qtzip/qtzipreader.h \
-    qtzip/qtzipwriter.h
+    qtzip/qtzipwriter.h \
+    qtzip/miniz.h \
+    qtzip/miniz_common.h \
+    qtzip/miniz_tdef.h \
+    qtzip/miniz_tinfl.h \
+    qtzip/miniz_zip.h
 INCLUDEPATH +=  $$PWD/qtzip
 
 unix {
