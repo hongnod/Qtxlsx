@@ -1,2 +1,4 @@
 /QtXlsx.pro.user
 *.user
+/lib
+/inc
