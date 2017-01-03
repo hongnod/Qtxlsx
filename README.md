@@ -7,3 +7,6 @@
    need more guide ?  pls refer to -- https://github.com/dbzhang800/QtXlsxWriter.
     
 amazing lib, many thanks to @Debao Zhang
+
+
+  miniz  https://github.com/uroni/miniz
