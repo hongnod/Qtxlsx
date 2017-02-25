@@ -25,21 +25,22 @@
 
 #include "xlsxzipreader_p.h"
 
-//#include <private/QtZ::QtZipReader_p.h>
+//#include <private/QtZipReader_p.h>
 
 
 
 QT_BEGIN_NAMESPACE_XLSX
 
+QTZIP_USE_NAMESPACE
 
 ZipReader::ZipReader(const QString &filePath) :
-    m_reader(new QtZ::QtZipReader(filePath))
+    m_reader(new QtZipReader(filePath))
 {
     init();
 }
 
 ZipReader::ZipReader(QIODevice *device) :
-    m_reader(new QtZ::QtZipReader(device))
+    m_reader(new QtZipReader(device))
 {
     init();
 }
@@ -52,11 +53,11 @@ ZipReader::~ZipReader()
 void ZipReader::init()
 {
 #if QT_VERSION >= 0x050600
-    QVector<QtZ::QtZipReader::FileInfo> allFiles = m_reader->fileInfoList();
+    QVector<QtZipReader::FileInfo> allFiles = m_reader->fileInfoList();
 #else
-    QList<QtZ::QtZipReader::FileInfo> allFiles = m_reader->fileInfoList();
+    QList<QtZipReader::FileInfo> allFiles = m_reader->fileInfoList();
 #endif
-    foreach (const QtZ::QtZipReader::FileInfo &fi, allFiles) {
+    foreach (const QtZipReader::FileInfo &fi, allFiles) {
         if (fi.isFile)
             m_filePaths.append(fi.filePath);
     }

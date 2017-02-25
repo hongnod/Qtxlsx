@@ -24,22 +24,22 @@
 ****************************************************************************/
 #include "xlsxzipwriter_p.h"
 #include <QDebug>
-//#include <private/QtZ::QtZipWriter_p.h>
+//#include <private/QtZipWriter_p.h>
 
 
 QT_BEGIN_NAMESPACE_XLSX
-
+QTZIP_USE_NAMESPACE
 
 ZipWriter::ZipWriter(const QString &filePath)
 {
-    m_writer = new QtZ::QtZipWriter(filePath, QIODevice::WriteOnly);
-    m_writer->setCompressionPolicy(QtZ::QtZipWriter::AutoCompress);
+    m_writer = new QtZipWriter(filePath, QIODevice::WriteOnly);
+    m_writer->setCompressionPolicy(QtZipWriter::AutoCompress);
 }
 
 ZipWriter::ZipWriter(QIODevice *device)
 {
-    m_writer = new QtZ::QtZipWriter(device);
-    m_writer->setCompressionPolicy(QtZ::QtZipWriter::AutoCompress);
+    m_writer = new QtZipWriter(device);
+    m_writer->setCompressionPolicy(QtZipWriter::AutoCompress);
 }
 
 ZipWriter::~ZipWriter()
@@ -49,7 +49,7 @@ ZipWriter::~ZipWriter()
 
 bool ZipWriter::error() const
 {
-    return m_writer->status() != QtZ::QtZipWriter::NoError;
+    return m_writer->status() != QtZipWriter::NoError;
 }
 
 void ZipWriter::addFile(const QString &filePath, QIODevice *device)

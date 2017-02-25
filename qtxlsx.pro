@@ -12,7 +12,7 @@ TARGET = qtxlsx
 TEMPLATE = lib
 QT += core gui
 
-DEFINES += QTXLSX_LIBRARY QT_DEPRECATED_WARNINGS QTZIP_LIBRARY
+DEFINES += QTXLSX_LIBRARY QT_DEPRECATED_WARNINGS
 
 
 
@@ -48,12 +48,7 @@ SOURCES += \
     xlsxworksheet.cpp \
     xlsxzipreader.cpp \
     xlsxzipwriter.cpp \
-    xlsxmarker.cpp \
-    qtzip.cpp \
-    $$PWD/../miniz/miniz.c \
-    $$PWD/../miniz/miniz_tdef.c \
-    $$PWD/../miniz/miniz_tinfl.c \
-    $$PWD/../miniz/miniz_zip.c
+    xlsxmarker.cpp
 
 HEADERS +=\
     xlsxabstractooxmlfile.h \
@@ -102,16 +97,16 @@ HEADERS +=\
     xlsxzipreader_p.h \
     xlsxzipwriter_p.h \
     xlsxmarker.h \
-    xlsxmarker_p.h \
-    qtzipglobal.h \
-    qtzipreader.h \
-    qtzipwriter.h \
-    $$PWD/../miniz/miniz.h \
-    $$PWD/../miniz/miniz_common.h \
-    $$PWD/../miniz/miniz_tdef.h \
-    $$PWD/../miniz/miniz_tinfl.h \
-    $$PWD/../miniz/miniz_zip.h
-INCLUDEPATH += $$PWD/../miniz
+    xlsxmarker_p.h
+
+INCLUDEPATH += $$PWD/../QtMiniz/inc \
+
+
+CONFIG(debug, debug|release){
+LIBS += -L$$PWD/../QtMiniz/lib -lqtminizd
+}else{
+LIBS += -L$$PWD/../QtMiniz/lib -lqtminiz
+}
 
 unix {
     target.path = /usr/lib
